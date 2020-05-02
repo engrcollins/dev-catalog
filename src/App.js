@@ -30,7 +30,7 @@ function App() {
               <br/>
               <div className="appContent" style={{textAlign: "center"}}>
                 <Switch>
-                  <Route exact path={["/", "/customers"]} component={CustomersList} />
+                <Route path="/" component={CustomersList} />
                   <Route exact path="/add" component={AddCustomer} />
                   <Route path="/customers/:id" component={Customer} />
                 </Switch>
