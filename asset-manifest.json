@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/web-journal/static/css/main.ec4ab998.chunk.css",
-    "main.js": "/web-journal/static/js/main.78b3b532.chunk.js",
-    "main.js.map": "/web-journal/static/js/main.78b3b532.chunk.js.map",
+    "main.css": "/web-journal/static/css/main.2ee008cc.chunk.css",
+    "main.js": "/web-journal/static/js/main.f7f8d277.chunk.js",
+    "main.js.map": "/web-journal/static/js/main.f7f8d277.chunk.js.map",
     "runtime-main.js": "/web-journal/static/js/runtime-main.cb98a187.js",
     "runtime-main.js.map": "/web-journal/static/js/runtime-main.cb98a187.js.map",
-    "static/js/2.c2b78410.chunk.js": "/web-journal/static/js/2.c2b78410.chunk.js",
-    "static/js/2.c2b78410.chunk.js.map": "/web-journal/static/js/2.c2b78410.chunk.js.map",
+    "static/css/2.397cafd4.chunk.css": "/web-journal/static/css/2.397cafd4.chunk.css",
+    "static/js/2.b0e14be2.chunk.js": "/web-journal/static/js/2.b0e14be2.chunk.js",
+    "static/js/2.b0e14be2.chunk.js.map": "/web-journal/static/js/2.b0e14be2.chunk.js.map",
     "index.html": "/web-journal/index.html",
-    "precache-manifest.7774a30a86d6e9b1b1cff913f75c4d7a.js": "/web-journal/precache-manifest.7774a30a86d6e9b1b1cff913f75c4d7a.js",
+    "precache-manifest.0f236e69b978fc13355aa49ebb6a5f4e.js": "/web-journal/precache-manifest.0f236e69b978fc13355aa49ebb6a5f4e.js",
     "service-worker.js": "/web-journal/service-worker.js",
-    "static/css/main.ec4ab998.chunk.css.map": "/web-journal/static/css/main.ec4ab998.chunk.css.map",
-    "static/js/2.c2b78410.chunk.js.LICENSE.txt": "/web-journal/static/js/2.c2b78410.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/web-journal/static/media/logo.5d5d9eef.svg"
+    "static/css/2.397cafd4.chunk.css.map": "/web-journal/static/css/2.397cafd4.chunk.css.map",
+    "static/css/main.2ee008cc.chunk.css.map": "/web-journal/static/css/main.2ee008cc.chunk.css.map",
+    "static/js/2.b0e14be2.chunk.js.LICENSE.txt": "/web-journal/static/js/2.b0e14be2.chunk.js.LICENSE.txt",
+    "static/media/header1.png": "/web-journal/static/media/header1.a6b7140d.png",
+    "static/media/header2.png": "/web-journal/static/media/header2.64c1ea7d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.cb98a187.js",
-    "static/js/2.c2b78410.chunk.js",
-    "static/css/main.ec4ab998.chunk.css",
-    "static/js/main.78b3b532.chunk.js"
+    "static/css/2.397cafd4.chunk.css",
+    "static/js/2.b0e14be2.chunk.js",
+    "static/css/main.2ee008cc.chunk.css",
+    "static/js/main.f7f8d277.chunk.js"
   ]
 }
