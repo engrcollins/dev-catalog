@@ -232,11 +232,11 @@ flex-direction: row-reverse;
 }
 
 .page-menu > li > a:hover {
-  background-color: #4D94FF;
+  background-color: coral;
 }
 
 .page-menu .nav-pills .active{
-  background-color: #4D94FF;
+  background-color: coral;
 }
 
 .appContent{
