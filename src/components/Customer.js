@@ -86,7 +86,7 @@ const Customer = props => {
     <div className="customer-form">
       {currentCustomer ? (
         <div className="edit-form">
-          <h4><strong>Update Customer</strong></h4>
+          <h4><strong>Update Article</strong></h4>
           <form>
           <div article-form>
             <p>{message}</p>

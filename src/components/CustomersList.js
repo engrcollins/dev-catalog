@@ -131,7 +131,7 @@ const CustomersList = () => {
         <div className="customer-details">
         {currentCustomer ? (
           <div>
-            <h4 className=""><u>Customer &nbsp;
+            <h4 className=""><u>Article &nbsp;
               {currentCustomer.id}</u></h4>
             <p className="customer-group ">
               <label className="output-labelling">
