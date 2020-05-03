@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './Header'
 import ArchiveNav from './Navigation'
 import "./App.css";
+import Home from "./components/Home";
 import AddCustomer from "./components/AddCustomer";
 import Customer from "./components/Customer";
 import CustomersList from "./components/CustomersList";
@@ -18,7 +19,7 @@ function App() {
             <div>
               <ul className="nav nav-pills page-menu">
               <li><Link to={"/"} activeClassName="active">
-                    Article Table
+                    Home
                   </Link></li>
                 <li><Link to={"/customers"} activeClassName="active">
                     Articles
@@ -31,7 +32,8 @@ function App() {
                 <Switch>
                   <Route path="/add" component={AddCustomer} />
                   <Route path="/customers/:id" component={Customer} />
-                  <Route path="/" component={CustomersList} />
+                  <Route path="/customers" component={CustomersList} />
+                  <Route path="/" component={Home} />
                 </Switch>
             </div>
         </Router>
