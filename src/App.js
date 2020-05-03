@@ -17,13 +17,13 @@ function App() {
           <Router>
             <div>
               <ul className="nav nav-pills page-menu">
-              <li><Link to={"/customers"} className="">
+              <li><Link to={"/"} activeClassName="active">
                     Article Table
                   </Link></li>
-                <li><Link to={"/customers"} className="">
+                <li><Link to={"/customers"} activeClassName="active">
                     Articles
                   </Link></li>
-                  <li><Link to={"/add"} className="">New Article</Link></li>
+                  <li><Link to={"/add"} activeClassName="active">New Article</Link></li>
               </ul>
               </div>
               <br/>
@@ -31,7 +31,6 @@ function App() {
                 <Switch>
                   <Route path="/add" component={AddCustomer} />
                   <Route path="/customers/:id" component={Customer} />
-                  <Route path="/customers" component={CustomersList} />
                   <Route path="/" component={CustomersList} />
                 </Switch>
             </div>

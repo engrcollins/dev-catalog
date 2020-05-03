@@ -229,7 +229,14 @@ flex-direction: row-reverse;
 .page-menu{
   margin: 1px 2px 4px 2px;
   font-size: 18px;
+}
 
+.page-menu > li > a:hover {
+  background-color: #4D94FF;
+}
+
+.page-menu .nav-pills .active{
+  background-color: #4D94FF;
 }
 
 .appContent{
