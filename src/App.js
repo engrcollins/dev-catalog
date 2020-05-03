@@ -19,7 +19,7 @@ function App() {
               <ul className="nav nav-pills page-menu">
                 <li className="active"><a href="/customers" className="">
                 ARCHIVE TABLE</a></li>
-                <li><Link to={"./customers"} className="">
+                <li><Link to={"/customers"} className="">
                     Articles
                   </Link></li>
                   <li><Link to={"/add"} className="">New Article</Link></li>
