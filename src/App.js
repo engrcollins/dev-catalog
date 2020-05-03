@@ -17,8 +17,9 @@ function App() {
           <Router>
             <div>
               <ul className="nav nav-pills page-menu">
-                <li className="active"><a href="/customers" className="">
-                ARCHIVE TABLE</a></li>
+              <li><Link to={"/customers"} className="">
+                    Article Table
+                  </Link></li>
                 <li><Link to={"/customers"} className="">
                     Articles
                   </Link></li>
