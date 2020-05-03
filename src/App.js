@@ -1,4 +1,4 @@
-import React from "react";
+import React, {component} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './Header'
@@ -22,19 +22,17 @@ function App() {
                 <li><Link to={"/customers"} className="">
                     Articles
                   </Link></li>
-                  <li><Link to={"/add"} className="">
-                    New Article
-                  </Link></li>
+                  <li><Link to={"/add"} className="">New Article</Link></li>
               </ul>
               </div>
               <br/>
               <div className="appContent" style={{textAlign: "center"}}>
                 <Switch>
-                <Route path="/" component={CustomersList} />
-                  <Route exact path="/add" component={AddCustomer} />
+                  <Route path="/add" component={AddCustomer} />
                   <Route path="/customers/:id" component={Customer} />
+                  <Route path="/" component={CustomersList} />
                 </Switch>
-              </div>
+            </div>
         </Router>
         </div>
     </div>

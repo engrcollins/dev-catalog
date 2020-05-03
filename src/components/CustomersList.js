@@ -73,7 +73,6 @@ const CustomersList = () => {
               allTitle[i].parentElement.style.display="none";
       } 
       else {
-        console.log(allTitle[i])
         allTitle[i].parentElement.style.display="block";				 
       } 
     } 
@@ -108,7 +107,7 @@ const CustomersList = () => {
           <ul className="list-group">
             {customers &&
               customers.map((customer, index) => (
-                <li><p
+                <div key={index}><p
                   className={
                     "list-group-item " + (index === currentIndex ? "active" : "")
                   }
@@ -116,7 +115,7 @@ const CustomersList = () => {
                   key={index}
                 >
                   {customer.title}
-                </p></li>
+                </p></div>
               ))}
           </ul>
 
@@ -192,7 +191,7 @@ const CustomersList = () => {
           </div>
         ) : (
           <div>
-            <p>Please click on a Customer...</p>
+            <p>Please click on an article to view details...</p>
           </div>
         )}
       </div>
