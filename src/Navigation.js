@@ -35,7 +35,7 @@ const ArchiveNav = () =>{
         return(
             <div>
                 <div class="navbar">
-                        <a href="#" className={classes.home}><HomeIcon />HOME</a>
+                  <a href="#" className={classes.home}>HOME</a>
                         <div class="dropdown">
                             <button class="dropbtn">CATEGORIES </button>
                             <div class="dropdown-content">

@@ -15,12 +15,17 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import RouterIcon from '@material-ui/icons/Router';
+
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     backgroundColor: theme.palette.background.paper,
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
   },
 }));
 
@@ -89,6 +94,9 @@ const Side = () => {
           selected={selectedIndex === 2}
           onClick={(event) => handleListItemClick(event, 2)}
         >
+        <ListItemIcon>
+          <RouterIcon />
+        </ListItemIcon>
           <ListItemText primary="Top Articles" />
         </ListItem>
 
