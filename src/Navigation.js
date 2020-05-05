@@ -1,33 +1,79 @@
 
-import React from 'react'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import Button from '@material-ui/core/Button';
+import HomeIcon from '@material-ui/icons/Home';
 
-class ArchiveNav extends React.Component{
-    render(){
+const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+      borderRadius: 20,
+    },
+    home: {
+    }
+  }));
+
+const ArchiveNav = () =>{
+    const classes = useStyles();
+
+    //Search Journal
+    const searchJournal = () =>{ 
+        let searchInput = document.getElementById('article-searcher').value 
+        searchInput=searchInput.toLowerCase(); 
+        let allTitle = document.getElementsByClassName('list-group-item'); 
+        
+        for (let i = 0; i < allTitle.length; i++) { 
+          if (!allTitle[i].innerHTML.toLowerCase().includes(searchInput)) { 
+                  allTitle[i].parentElement.style.display="none";
+          } 
+          else {
+            allTitle[i].parentElement.style.display="block";				 
+          } 
+        } 
+      } 
         return(
-                <div className="navigation">
-                    <nav className="row navbar navbar-inverse">
-                        <div className="container-fluid">
-                            <ul className="col-6 nav navbar-nav">
-                                <li className="active"><a href="#">Home</a></li>
-                                <li><a href="#">Categories</a>
-
-                                    <ul className="dropdown nav nav-tabs">
-                                        <li><a href="./number-theory/theory-one.html" target="_blank">Number Theory</a></li>
-                                        <li><a href="./algorithms/binary-search.html" target="_blank">Simple Algorithms</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html" target="_blank">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                            </ul>
-                            <div className="col-6  search">
-                                <button type="submit" className="searchbutton"><span className="glyphicon glyphicon-search"></span></button>
-                                <input className="searchbox" name="searchbox" className="searchbox" type="text" placeholder="Search Archive" />
+            <div>
+                <div class="navbar">
+                        <a href="#" className={classes.home}><HomeIcon />HOME</a>
+                        <div class="dropdown">
+                            <button class="dropbtn">CATEGORIES </button>
+                            <div class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
                             </div>
                         </div>
-                    </nav>
+                        <a href="#news">ABOUT US</a>
+                        <a href="#news">CONTACT US</a>
+                        <div className="article-search">
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                            >
+                                 <SearchOutlinedIcon />
+                                Search
+                            </Button>
+                            <input
+                                type="text"
+                                id="article-searcher"
+                                className="searchbox"
+                                placeholder="Search article by title"
+                                onKeyUp={searchJournal}
+                            />
+                            {/**/}
+                        </div>
                 </div>
+        
+                <div>
+                    <p></p>
+                </div>
+            </div>
+
+            
+
         )
-    }
 }
 
 export default ArchiveNav

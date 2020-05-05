@@ -1,8 +1,12 @@
-import React, {component} from "react";
+import React, {component, useState} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './Header'
-import ArchiveNav from './Navigation'
+import { Container, Grid, Paper, Typography } from "@material-ui/core";
+import LayersIcon from '@material-ui/icons/Layers';
+import AddBoxIcon from '@material-ui/icons/AddBox';
+//import "bootstrap/dist/css/bootstrap.min.css";
+import Header from './Header';
+import ArchiveNav from './Navigation';
+import Side from './SideNav.js';
 import "./App.css";
 import Home from "./components/Home";
 import AddCustomer from "./components/AddCustomer";
@@ -10,35 +14,31 @@ import Customer from "./components/Customer";
 import CustomersList from "./components/CustomersList";
 
 function App() {
+
   return (
-      <div className="" style={{marginLeft: "20px"}} >
+      <div className="" >
       <Header />
         <ArchiveNav />
-        <div className=" row" style={{textAlign: "center"}}>
-          <Router>
-            <div>
-              <ul className="nav nav-pills page-menu">
-              <li><Link to={"/"} activeClassName="active">
-                    Home
-                  </Link></li>
-                <li><Link to={"/customers"} activeClassName="active">
-                    Articles
-                  </Link></li>
-                  <li><Link to={"/add"} activeClassName="active">New Article</Link></li>
-              </ul>
-              </div>
-              <br/>
-              <div className="appContent" style={{textAlign: "center"}}>
+            <Router>
+              <Grid container spacing={3}>
+              <Grid item xs={12} sm={3} lg={2}>
+                <Side />
+              </Grid>
+                <br/>
+                <br/>
+                <Grid item xs={8} sm={9} lg={10}>
+                <div className="appContent" style={{textAlign: "center"}}>
                 <Switch>
-                  <Route path="/add" component={AddCustomer} />
-                  <Route path="/customers/:id" component={Customer} />
-                  <Route path="/customers" component={CustomersList} />
-                  <Route path="/" component={Home} />
-                </Switch>
-            </div>
-        </Router>
-        </div>
-    </div>
+                    <Route path="/add" component={AddCustomer} />
+                    <Route path="/customers/:id" component={Customer} />
+                    <Route path="/customers" component={CustomersList} />
+                    <Route path="/" component={Home} />
+                  </Switch>
+              </div>
+              </Grid>
+              </Grid>
+          </Router>
+          </div>
   );
 }
 

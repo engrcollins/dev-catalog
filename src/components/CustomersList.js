@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './CustomersList.css'
 import CustomerDataService from "../services/CustomerService";
 import { Link } from "react-router-dom";
+import { Grid, Paper, Typography } from "@material-ui/core";
 
 const CustomersList = () => {
   const [customers, setCustomers] = useState([]);
@@ -61,49 +62,12 @@ const CustomersList = () => {
         console.log(e);
       });
   };
-
-  //search website
-  const search_journal = () =>{ 
-    let searchInput = document.getElementById('article-searcher').value 
-    searchInput=searchInput.toLowerCase(); 
-    let allTitle = document.getElementsByClassName('list-group-item'); 
-    
-    for (let i = 0; i < allTitle.length; i++) { 
-      if (!allTitle[i].innerHTML.toLowerCase().includes(searchInput)) { 
-              allTitle[i].parentElement.style.display="none";
-      } 
-      else {
-        allTitle[i].parentElement.style.display="block";				 
-      } 
-    } 
-  } 
   return (
     <div className="">
-      <div className="leftSide col-5 col-s-5">
-        <div className="article-search">
-          <input
-            type="text"
-            id="article-searcher"
-            className="searchbox"
-            placeholder="Search by title"
-            value={searchTitle}
-            onKeyUp={search_journal}
-            onChange={onChangeSearchTitle}
-          />
-          <div id="" className="article-button">
-            <button
-              className="btn btn-info"
-              type="button"
-              onClick={findByTitle}
-            >
-              Search
-            </button>
-          </div>
-        </div>
-        <br/>
+      <Grid container spacing={3}>
+      <Grid item xs={12} sm={5} className="appContent">
         <div className="article-list">
           <h3><strong>Topic List</strong></h3>
-
           <ul className="list-group">
             {customers &&
               customers.map((customer, index) => (
@@ -119,15 +83,15 @@ const CustomersList = () => {
               ))}
           </ul>
 
-          <button
+          {/*<button
             className="btn btn-danger"
             onClick={removeAllCustomers}
           >
             Remove All
-          </button>
+          </button>}*/}
         </div>
-      </div>
-      <div className="rightSide col-6 col-s-6">
+        </Grid>
+        <Grid item xs={12} sm={7} className="appContent">
         <div className="customer-details">
         {currentCustomer ? (
           <div>
@@ -195,8 +159,9 @@ const CustomersList = () => {
           </div>
         )}
       </div>
+      </Grid>
+      </Grid>
       </div>
-    </div>
   );
 }
 

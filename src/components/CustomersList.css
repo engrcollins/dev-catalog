@@ -1,6 +1,5 @@
 .article-list{
-    text-align: center;
-  
+   
   }
   
   .article-searcher{
@@ -28,7 +27,7 @@
   }
 
   .customer-group{
-    margin: 2px;
+    margin:1px;
     text-align: left;
   
   }

@@ -1,5 +1,9 @@
-import React from 'react'
-import header1 from './materials/header1.png'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import TypoGraphy from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
 import header2 from './materials/header2.png'
 const Header = () => {
     const  setDate = () => {
@@ -68,18 +72,46 @@ const Header = () => {
       //copyright.innerHTML = year;
     }
     setInterval(setDate,1000);
-      return (
-        <div>
-          <div className="header grid-header" onClick={setDate}> 
-            <img className="item1 logo1" src={header1} alt="logo" />
-              <h2>WEB ARCHIVE</h2>
-            <img align="right" className="item4 cub" src={header2} alt="logo2" />
-          </div>
-          <div className="item1">
+
+    const useStyles = makeStyles((theme) => ({
+      iconise: {
+        display: 'flex',
+        '& > *': {
+          margin: theme.spacing(1),
+        },
+      },
+
+      righted:{
+        position: 'absolute',
+        right: 0,
+      },
+
+      barback: {
+         backgroundColor: '#81d4fa'
+        },
+    }));
+
+    const classes = useStyles();
+    return(
+      <div>
+        <AppBar className={classes.barback} position="static" padding-right="-1px" >
+        <Toolbar  >
+          <span className={classes.iconise} >
+            <Avatar alt="Web Journal" src="web-logo.jpg" />
+          </span>
+        <TypoGraphy>
+            <h2 className="web-title">WEB JOURNAL</h2>
+          </TypoGraphy>
+          <span className="cub-span">
+            <img alt="web-logo" src={header2} className="cub" />
+          </span>
+          </Toolbar>
+        </AppBar>
+        <div onClick={setDate}> 
             <h3 align="center" id="welcome"><p className="date"></p></h3>
-          </div>
+        </div>
       </div>
       );
-}
+    }
 
 export default Header
