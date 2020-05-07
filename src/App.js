@@ -5,7 +5,7 @@ import LayersIcon from '@material-ui/icons/Layers';
 //import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './Header';
 import ArchiveNav from './Navigation';
-import Side from '.components/SideNav.js';
+import Side from './components/SideNav.js';
 import "./App.css";
 import Home from "./components/Home";
 import AddCustomer from "./components/AddCustomer";
