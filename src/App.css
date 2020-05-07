@@ -51,11 +51,10 @@ body{
 }
 
 .navbar {
-  overflow: hidden;
   height: 47px;
   margin-top: 30px;
   background-color: rgb(151, 146, 172);
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .navbar a {
@@ -63,7 +62,7 @@ body{
   color: rgb(36, 34, 34);
   font-weight: bolder;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 7px;
   text-decoration: none;
 }
 
@@ -187,21 +186,4 @@ body{
   .sidenav a {font-size: 18px;}
 }
 
-.appContent{
-}
 
-.leftSide{
-  padding: 10px;
-  margin-right: 3px;
-  font-size: 17px;
-  border-right: 2px solid skyblue;
-}
-
-.rightSide{
-padding: 1px;
-margin: 1px;
-margin-left: 15px;
-font-size: 15px;
-text-align: center;
-align-items: center;
-}

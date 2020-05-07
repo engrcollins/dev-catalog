@@ -2,26 +2,49 @@ import React, { useState, useEffect } from "react";
 import './CustomersList.css'
 import CustomerDataService from "../services/CustomerService";
 import { Link } from "react-router-dom";
-import { Grid, Paper, Typography } from "@material-ui/core";
+import { Grid, Paper, Typography, Divider } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
+
+const useStyles = makeStyles({
+  root: {
+    width: '100%',
+    minWidth: 340,
+    border: 1,
+  },
+  table: {
+    minWidth: 360,
+  },
+  active: {
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+  },
+});
 
 const CustomersList = () => {
   const [customers, setCustomers] = useState([]);
   const [currentCustomer, setCurrentCustomer] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [searchTitle, setSearchTitle] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedIndex, setSelectedIndex] = useState(1)
 
   useEffect(() => {
     retrieveCustomers();
   }, []);
 
-  const onChangeSearchTitle = e => {
-    const searchTitle = e.target.value;
-    setSearchTitle(searchTitle);
-  };
-
   const retrieveCustomers = () => {
     CustomerDataService.getAll()
       .then(response => {
+        setIsLoading(false);
         setCustomers(response.data);
         console.log(response.data);
       })
@@ -29,6 +52,7 @@ const CustomersList = () => {
         console.log(e);
       });
   };
+
 
   const refreshList = () => {
     retrieveCustomers();
@@ -40,123 +64,116 @@ const CustomersList = () => {
     setCurrentCustomer(customer);
     setCurrentIndex(index);
   };
+  const classes = useStyles();
 
-  const removeAllCustomers = () => {
-    CustomerDataService.removeAll()
-      .then(response => {
-        console.log(response.data);
-        refreshList();
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  const findByTitle = () => {
-    CustomerDataService.findByTitle(searchTitle)
-      .then(response => {
-        setCustomers(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
   return (
     <div className="">
-      <Grid container spacing={3}>
+      <Grid container spacing={3} >
       <Grid item xs={12} sm={5} className="appContent">
+      {isLoading ? (<p>Data loading, please wait.. 
+        <Loader type="ThreeDots" color="#00BFFF" height={50} width={50} />
+       </p>) : (
         <div className="article-list">
-          <h3><strong>Topic List</strong></h3>
-          <ul className="list-group">
-            {customers &&
+          <h3><strong>ARTICLE TOPICS</strong></h3>
+          <p>Click on any article below to view details...</p>
+          <div >
+          <List component="nav" >
+          {customers &&
               customers.map((customer, index) => (
-                <div key={index}><p
-                  className={
-                    "list-group-item " + (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => setActiveCustomer(customer, index)}
-                  key={index}
-                >
-                  {customer.title}
-                </p></div>
+                <ListItem button key={index}
+                   selected={currentIndex === index}
+                    onClick={() => setActiveCustomer(customer, index)}>
+                  <ListItemText primary={<div ><p
+                    >
+                      {customer.title}
+                    </p></div>} />
+                    <Divider />
+                  </ListItem>
               ))}
-          </ul>
-
-          {/*<button
-            className="btn btn-danger"
-            onClick={removeAllCustomers}
-          >
-            Remove All
-          </button>}*/}
-        </div>
-        </Grid>
-        <Grid item xs={12} sm={7} className="appContent">
+              </List>
+              </div>
+            </div>
+       )}
+      </Grid>
+      <Grid item xs={12} sm={7} className="appContent">
         <div className="customer-details">
         {currentCustomer ? (
           <div>
-            <h4 className=""><u>Article &nbsp;
-              {currentCustomer.id}</u></h4>
-            <p className="customer-group ">
-              <label className="output-labelling">
-                <strong>Title:</strong>
-              </label>{" "}
-              {currentCustomer.title}
-            </p>
-             <p className="customer-group">
-              <label className="output-labelling">
-                <strong>Category:</strong>
-              </label>{" "}
-              {currentCustomer.category}
-            </p>
-            <p className="customer-group">
-              <label className="output-labelling">
-                <strong>Description:</strong>
-              </label>{" "}
-              {currentCustomer.description}
-            </p>
-             <p className="customer-group">
-              <label className="output-labelling">
-                <strong>Source:</strong>
-              </label>{" "}
-              {currentCustomer.source}
-            </p>
-             <p className="customer-group">
-              <label className="output-labelling">
-                <strong>Author:</strong>
-              </label>{" "}
-              {currentCustomer.author}
-            </p>
-             <p className="customer-group">
-              <label className="output-labelling">
-                <strong>URL:</strong>
-              </label>{" "}
-              {currentCustomer.url}
-            </p>
-             <p className="customer-group">
-              <label className="output-labelling">
-                <strong>Tags:</strong>
-              </label>{" "}
-              {currentCustomer.tags}
-            </p>
-             <p className="customer-group">
-              <label className="output-labelling">
-                <strong>Status:</strong>
-              </label>{" "}
-              {currentCustomer.published ? "Published" : "Pending"}
-            </p>
+            <TableContainer>
+                <Table className={classes.table} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell colSpan={2} align="center"><strong>ARTICLE &nbsp;
+                          {currentCustomer.id}</strong>
+                        </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+            <TableRow>
+              <TableCell align="left"><strong>Title:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.title}</TableCell>
+            </TableRow>
 
-            <Link
-              to={"/customers/" + currentCustomer.id}
-              className="badge badge-warning"
-            >
-              Edit
-            </Link>
-          </div>
-        ) : (
-          <div>
-            <p>Please click on an article to view details...</p>
-          </div>
+            <TableRow>
+              <TableCell align="left"><strong>Category:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.category}</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell align="left"><strong>Description:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.description}</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell align="left"><strong>Source:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.source}</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell align="left"><strong>Author:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.source}</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell align="left"><strong>Source:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.source}</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell align="left"><strong>URL:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.url}</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell align="left"><strong>Tags:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.tags}</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell align="left"><strong>Status:</strong></TableCell>
+              <TableCell align="left">{" "}
+              {currentCustomer.published ? "Published" : "Pending"}</TableCell>
+            </TableRow>
+            </TableBody>
+            </Table>
+              <Link to={"/customers/" + currentCustomer.id}
+                className="badge badge-warning">
+                  Edit
+              </Link>
+          </TableContainer>
+        </div>
+            ) : (
+              <div>
+                <p>No article selected</p>
+              </div>
         )}
       </div>
       </Grid>

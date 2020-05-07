@@ -19,7 +19,7 @@ function App() {
       <Header />
         <ArchiveNav />
             <Router>
-              <Grid container spacing={3}>
+              <Grid container spacing={3} component={Paper} >
               <Grid item xs={12} sm={3} lg={2}>
                 <Side />
               </Grid>
