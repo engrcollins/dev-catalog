@@ -11,11 +11,12 @@ import Home from "./components/Home";
 import AddCustomer from "./components/AddCustomer";
 import Customer from "./components/Customer";
 import CustomersList from "./components/CustomersList";
+import Footer from "./Footer.js";
 
 function App() {
 
   return (
-      <div className="" >
+      <div id="appContainer" >
       <Header />
         <ArchiveNav />
             <Router>
@@ -37,6 +38,9 @@ function App() {
               </Grid>
               </Grid>
           </Router>
+          <div>
+            <Footer />
+          </div>
           </div>
   );
 }

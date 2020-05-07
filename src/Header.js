@@ -69,7 +69,7 @@ const Header = () => {
       presentDate.innerHTML = `Date: ${day}, ${date} ${month} ${year}. | Time: ${hours}:${minutes}:${seconds}${meridian}`;
       //dt +" " +month +" " +year". | Time
       const copyright = document.querySelector('.copyright');
-      //copyright.innerHTML = year;
+      copyright.innerHTML = year;
     }
     setInterval(setDate,1000);
 

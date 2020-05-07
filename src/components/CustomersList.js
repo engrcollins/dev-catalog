@@ -19,7 +19,7 @@ import Loader from 'react-loader-spinner'
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    minWidth: 340,
+    minWidth: 410,
     border: 1,
   },
   table: {
@@ -69,32 +69,6 @@ const CustomersList = () => {
   return (
     <div className="">
       <Grid container spacing={3} >
-      <Grid item xs={12} sm={5} className="appContent">
-      {isLoading ? (<p>Data loading, please wait.. 
-        <Loader type="ThreeDots" color="#00BFFF" height={50} width={50} />
-       </p>) : (
-        <div className="article-list">
-          <h3><strong>ARTICLE TOPICS</strong></h3>
-          <p>Click on any article below to view details...</p>
-          <div >
-          <List component="nav" >
-          {customers &&
-              customers.map((customer, index) => (
-                <ListItem button key={index}
-                   selected={currentIndex === index}
-                    onClick={() => setActiveCustomer(customer, index)}>
-                  <ListItemText primary={<div ><p
-                    >
-                      {customer.title}
-                    </p></div>} />
-                    <Divider />
-                  </ListItem>
-              ))}
-              </List>
-              </div>
-            </div>
-       )}
-      </Grid>
       <Grid item xs={12} sm={7} className="appContent">
         <div className="customer-details">
         {currentCustomer ? (
@@ -172,10 +146,38 @@ const CustomersList = () => {
         </div>
             ) : (
               <div>
+                <br/>
+                <br/>
                 <p>No article selected</p>
               </div>
         )}
       </div>
+      </Grid>
+      <Grid item xs={12} sm={5} className="appContent">
+      {isLoading ? (<p>Data loading, please wait.. 
+        <Loader type="ThreeDots" color="#00BFFF" height={50} width={50} />
+       </p>) : (
+        <div className="article-list" className={classes.root}>
+          <h3><strong>ARTICLE TOPICS</strong></h3>
+          <p>Click on any article below to view details...</p>
+          <div >
+          <List component="nav" >
+          {customers &&
+              customers.map((customer, index) => (
+                <ListItem button key={index}
+                   selected={currentIndex === index}
+                    onClick={() => setActiveCustomer(customer, index)}>
+                  <ListItemText primary={<div ><p
+                    >
+                      {customer.title}
+                    </p></div>} />
+                    <Divider />
+                  </ListItem>
+              ))}
+              </List>
+              </div>
+            </div>
+       )}
       </Grid>
       </Grid>
       </div>

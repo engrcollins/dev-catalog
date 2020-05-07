@@ -197,9 +197,9 @@ const Customer = props => {
             </button>
           )}
 
-            <button className="btn btn-success" onClick={deleteCustomer}>
+           {/*<button className="btn btn-success" onClick={deleteCustomer}>
             Delete
-          </button>
+          </button>*/}
 
           <button className="btn btn-success"
             type="submit"
