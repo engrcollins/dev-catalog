@@ -39,7 +39,7 @@ const Footer = () => {
                 <Typography>
                     <p><b>Contact us:</b>
                         <br />
-                            The Woke Library.
+                            Web Journal
                         <br />
                             Mail: mccollinstechnologies@gmail.com.
                         <p>Follow us on: <a href="https://twitter.com/engrcollins14" target="_blank">
