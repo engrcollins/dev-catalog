@@ -14,7 +14,7 @@ const Home = () =>{
         <p>Web journal is a collection of links to various online resources for web developers. An item comprises of a resource's topic, author, URL amongst others. Self-teaching developers like me can find this journal useful since it's a collection of sources to the original web posts. Click on <Link to={"/customers"}>Articles</Link> to explore this collection of resources.</p>
         <br />
         <p>
-          Don't forget to drop your comments and observations(in the comment section on how I can improve on the site.
+          Don't forget to drop your comments and observations(in the comment section) on how I can improve on the site.
         </p>
         <br />
         <p>
