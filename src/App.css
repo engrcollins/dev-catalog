@@ -126,6 +126,7 @@ body{
 }
 .searchbox{
   background-color: #ffffcc;
+  padding-left: 5px;
   margin-top: 9px;
   width: 60%;
   height: 34px;
@@ -188,9 +189,9 @@ body{
   .sidenav a {font-size: 18px;}
 }
 
-.footer{
+#footer{
   color: black;
-  font-size: 12px;
+  font-size: 8px;
  
 }
 

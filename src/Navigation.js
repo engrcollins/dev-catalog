@@ -59,7 +59,7 @@ const ArchiveNav = () =>{
                                 type="text"
                                 id="article-searcher"
                                 className="searchbox"
-                                placeholder="Search article by title"
+                                placeholder="Search Journal"
                                 onKeyUp={searchJournal}
                             />
                             {/**/}

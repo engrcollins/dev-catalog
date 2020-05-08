@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Side = () => {
   const classes = useStyles();
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -74,8 +74,8 @@ const Side = () => {
 
         <ListItem
           button
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 0)}
+          selected={selectedIndex === 2}
+          onClick={(event) => handleListItemClick(event, 2)}
         >
         <ListItemIcon>
           <LibraryAddIcon />
@@ -91,8 +91,8 @@ const Side = () => {
       <List component="nav" aria-label="secondary mailbox folder">
         <ListItem
           button
-          selected={selectedIndex === 2}
-          onClick={(event) => handleListItemClick(event, 2)}
+          selected={selectedIndex === 3}
+          onClick={(event) => handleListItemClick(event, 3)}
         >
         <ListItemIcon>
           <RouterIcon />

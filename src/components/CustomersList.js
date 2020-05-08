@@ -13,8 +13,9 @@ import TableRow from '@material-ui/core/TableRow';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const useStyles = makeStyles({
   root: {
@@ -70,7 +71,7 @@ const CustomersList = () => {
     <div className="">
       <Grid container spacing={3} >
       <Grid item xs={12} sm={7} className="appContent">
-        <div className="customer-details">
+        <div className="customer-details" id="section1">
         {currentCustomer ? (
           <div>
             <TableContainer>
@@ -166,11 +167,14 @@ const CustomersList = () => {
               customers.map((customer, index) => (
                 <ListItem button key={index}
                    selected={currentIndex === index}
-                    onClick={() => setActiveCustomer(customer, index)}>
+                    onClick={() => setActiveCustomer(customer, index)}
+                    >
+                  <AnchorLink href='#section1'>
                   <ListItemText primary={<div ><p
                     >
                       {customer.title}
                     </p></div>} />
+                    </AnchorLink>
                     <Divider />
                   </ListItem>
               ))}

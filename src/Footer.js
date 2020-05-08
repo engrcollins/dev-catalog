@@ -33,7 +33,7 @@ const Footer = () => {
 
     const classes = useStyles();
     return(
-      <div className= "footer">
+      <div id= "footer">
         <Grid container spacing={3} className={classes.barback} position="static" padding ="4px" >
             <Grid item xs={12} sm={4} style={{textAlign:"left", paddingLeft: "14px"}}>
                 <Typography>
@@ -57,7 +57,7 @@ const Footer = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={3} style={{paddingTop:"25px", textAlign:"center"}}>
-                <Typography>
+                <Typography >
                     <p><b>Disclaimer: </b>
                         All articles are referenced with source and author.
                     </p>
