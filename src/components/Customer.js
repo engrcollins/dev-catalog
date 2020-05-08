@@ -132,7 +132,7 @@ const Customer = props => {
                 type="text"
                 className="input-field"
                 id="source"
-                value={currentCustomer.dource}
+                value={currentCustomer.source}
                 onChange={handleInputChange}
                 name="source"
               />

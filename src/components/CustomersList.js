@@ -134,7 +134,7 @@ const CustomersList = () => {
             </TableBody>
             </Table>
               <Link to={"/customers/" + currentCustomer.id}
-                className="badge badge-warning">
+                >
                   Edit
               </Link>
           </TableContainer>
