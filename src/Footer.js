@@ -39,7 +39,7 @@ const Footer = () => {
                 <Typography>
                     <p><b>Contact us:</b>
                         <br />
-                            Web Journal
+                            Dev Journal
                         <br />
                             Mail: mccollinstechnologies@gmail.com.
                         <p>Follow us on: <a href="https://twitter.com/engrcollins14" target="_blank">
@@ -53,7 +53,7 @@ const Footer = () => {
             <Grid item xs={12} sm={5} style={{padding:"3px", paddingTop:"65px", textAlign:"center"}} >
                 <Typography>
                     <p> <a href="#">About Us</a> |  <a href="#">Terms of Service</a> |  <a href="#">Privacy Policy</a> |  <a href="#">FAQ</a> |  <a href="#">Advertise</a> </p>
-                    <p id="copyright"><b>Web Journal &copy; 2019 - <span className="copyright"></span></b></p>
+                    <p id="copyright"><b>Dev Journal &copy; 2019 - <span className="copyright"></span></b></p>
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={3} style={{paddingTop:"25px", textAlign:"center"}}>

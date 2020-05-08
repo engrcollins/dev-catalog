@@ -15,7 +15,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner';
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const useStyles = makeStyles({
   root: {
@@ -65,6 +65,11 @@ const CustomersList = () => {
     setCurrentCustomer(customer);
     setCurrentIndex(index);
   };
+
+  const newLocation = (external) => {
+    window.open(external)
+  }
+
   const classes = useStyles();
 
   return (
@@ -111,13 +116,13 @@ const CustomersList = () => {
             <TableRow>
               <TableCell align="left"><strong>Author:</strong></TableCell>
               <TableCell align="left">{" "}
-              {currentCustomer.source}</TableCell>
+              {currentCustomer.author}</TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell align="left"><strong>URL:</strong></TableCell>
-              <TableCell align="left">{" "}
-              {currentCustomer.URL}</TableCell>
+              <TableCell align="left"><a  href={currentCustomer.URL} target="_blank">{" "} {currentCustomer.URL}</a>
+              </TableCell>
             </TableRow>
 
             <TableRow>

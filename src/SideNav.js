@@ -55,7 +55,7 @@ const Side = () => {
             <HomeIcon />
           </ListItemIcon>
           <Link to={"/"}>
-              <ListItemText primary="JOURNAL" />
+  <ListItemText primary= "&lt;DEV /&gt; JOURNAL" />
             </Link>
         </ListItem>
 
