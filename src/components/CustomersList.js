@@ -117,7 +117,7 @@ const CustomersList = () => {
             <TableRow>
               <TableCell align="left"><strong>URL:</strong></TableCell>
               <TableCell align="left">{" "}
-              {currentCustomer.url}</TableCell>
+              {currentCustomer.URL}</TableCell>
             </TableRow>
 
             <TableRow>
