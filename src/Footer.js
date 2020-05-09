@@ -42,18 +42,17 @@ const Footer = () => {
       <div id= "footer">
         <Grid container spacing={3} className={classes.barback} position="static" padding ="1px" >
             <Grid item xs={12} sm={8} style={{textAlign:"left", paddingLeft: "14px"}}>
-                <Typography>
-                    <p>
+                <Typography variant="caption" gutterBottom>
+                 
                        <b>&lt;Dev /&gt; Journal</b> is a project of <b>McCollins Technologies.</b>
                        <p><b>Disclaimer: </b>
                         All articles are referenced with source and author.
                         </p>
-                    </p>
                         
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={4} style={{paddingTop:"2px", textAlign:"left"}}>
-                <Typography >
+                <Typography variant = "caption">
                     <p>
                         <b>Contact us:</b>
                         <br/>
@@ -70,7 +69,7 @@ const Footer = () => {
                 </Typography>
             </Grid>
             <Grid item xs={12} sm={12} style={{padding:"1px", marginTop:"-15px", textAlign:"center"}} >
-                <Typography>
+                <Typography variant = "caption">
                     <p>
                         <a href="#"> <InfoIcon style={{ display: "inline-block", marginBottom:"-5px", fontSize:"20px" }}/>About Us</a> &nbsp;|&nbsp; <a href="#"> <PolicyIcon style={{ display: "inline-block", marginBottom:"-5px", fontSize:"20px" }}/>Privacy Policy</a> &nbsp;|&nbsp; <a href="#"><LiveHelpIcon style={{ display: "inline-block", marginBottom:"-5px", fontSize:"20px" }}/>FAQ</a> &nbsp;|&nbsp; <a href="#"><FeaturedVideoIcon style={{ display: "inline-block", marginBottom:"-5px", fontSize:"20px" }}/>Advertise</a>
                     </p>
