@@ -44,7 +44,7 @@ const Footer = () => {
             <Grid item xs={12} sm={8} style={{textAlign:"left", paddingLeft: "14px"}}>
                 <Typography variant="caption" gutterBottom>
                  
-                       <b>&lt;Dev /&gt; Journal</b> is a project of <b>McCollins Technologies.</b>
+                       <b>&lt;Dev /&gt; Catalog</b> is a project of <b>McCollins Technologies.</b>
                        <p><b>Disclaimer: </b>
                         All articles are referenced with source and author.
                         </p>

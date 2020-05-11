@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
 const ArchiveNav = () =>{
     const classes = useStyles();
 
-    //Search Journal
-    const searchJournal = () =>{ 
+    //Search Catalog
+    const searchCatalog = () =>{ 
         let searchInput = document.getElementById('article-searcher').value 
         searchInput=searchInput.toLowerCase(); 
         let allTitle = document.getElementsByClassName('list-group-item'); 
@@ -59,8 +59,8 @@ const ArchiveNav = () =>{
                                 type="text"
                                 id="article-searcher"
                                 className="searchbox"
-                                placeholder="Search Journal"
-                                onKeyUp={searchJournal}
+                                placeholder="Search Catalog"
+                                onKeyUp={searchCatalog}
                             />
                             {/**/}
                         </div>

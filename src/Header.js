@@ -97,7 +97,7 @@ const Header = () => {
         <AppBar className={classes.barback} position="static" padding-right="-1px" >
         <Toolbar  >
           <span className={classes.iconise} >
-            <Avatar alt="Dev Journal" src="web-logo.jpg" />
+            <Avatar alt="Dev Catalog" src="web-logo.jpg" />
           </span>
         <TypoGraphy>
             <h2 className="web-title">&lt;DEV /&gt; JOURNAL</h2>
