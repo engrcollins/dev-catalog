@@ -100,7 +100,7 @@ const Header = () => {
             <Avatar alt="Dev Catalog" src="web-logo.jpg" />
           </span>
         <TypoGraphy>
-            <h2 className="web-title">&lt;DEV /&gt; JOURNAL</h2>
+            <h2 className="web-title">&lt;DEV /&gt; CATALOG</h2>
           </TypoGraphy>
           <span className="cub-span">
             <img alt="web-logo" src={header2} className="cub" />
