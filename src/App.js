@@ -4,7 +4,6 @@ import { Container, Grid, Paper, Typography } from "@material-ui/core";
 import LayersIcon from '@material-ui/icons/Layers';
 //import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './Header';
-import ArchiveNav from './Navigation';
 import Side from './SideNav.js';
 import "./App.css";
 import Home from "./Home";
@@ -18,9 +17,8 @@ function App() {
   return (
       <div id="appContainer" >
       <Header />
-        <ArchiveNav />
             <Router>
-              <Grid container spacing={3} component={Paper} >
+              <Grid container spacing={3} >
               <Grid item xs={12} sm={3} lg={2}>
                 <Side />
               </Grid>

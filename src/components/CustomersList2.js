@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import './CustomersList.css'
 import CustomerDataService from "../services/CustomerService";
 import { Link } from "react-router-dom";
@@ -20,10 +21,10 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
-    width: '90%',
-    minWidth: 420,
+    width: '100%',
+    minWidth: 410,
     border: 1,
   },
   table: {
@@ -32,12 +33,7 @@ const useStyles = makeStyles((theme) => ({
   active: {
     backgroundColor: 'rgba(255, 255, 255, 0.12)',
   },
-  button: {
-    margin: theme.spacing(1),
-    padding: 0,
-    borderRadius: 20,
-  },
-}));
+});
 
 const CustomersList = () => {
   const [customers, setCustomers] = useState([]);
@@ -57,6 +53,7 @@ const CustomersList = () => {
         setIsLoading(false);
         setCustomers(response.data);
         setGenList(response.data);
+        console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -69,66 +66,66 @@ const CustomersList = () => {
         return customer.title
     })
     
-    //Set clicked topic to be displayed
    const setActiveCustomer = (indexTitle) => {
        let d = customers.find(d => d.title === indexTitle);
        let item = JSON.stringify(d);
         setCurrentCustomer(d);
      //setCurrentIndex(index);
    };
-
-  /*const refreshList = () => {
+  const refreshList = () => {
     retrieveCustomers();
     setCurrentCustomer(null);
     setCurrentIndex(-1);
-  };*/
-
-  //Populate the virtualised list
-  /*const Row = ({ index, style }) => (
-    <div className={index % 2 ? 'ListItemOdd' : 'ListItemEven'} style={style}>
-      Row {index}
-    </div>
-  );*/
+  };
 
   const Row = ({ index, style }) => (
-    <div style={style} button key={index} className={index % 2 ? 'ListItemOdd' : 'ListItemEven'}>
-      <ListItem 
-          selected={currentIndex === index}
-          onClick={() => setActiveCustomer(topicList[index])}
-          >
-          <AnchorLink href='#section1'>
-            <ListItemText primary=
-              {<p class="list-group-item">{topicList[index]}</p>}
-              />
-              <Divider />
-            </AnchorLink>
-      </ListItem>
+    <div>
+    <ListItem style={style} button key={index}
+        selected={currentIndex === index}
+        onClick={() => setActiveCustomer(topicList[index])}
+        >
+         <AnchorLink href='#section1' >
+          <ListItemText primary=
+            {<p class="list-group-item">{topicList[index]}</p>}
+            />
+            <Divider />
+          </AnchorLink>
+    </ListItem>
     </div>
   );
+    //Search Catalog
+        const searchCatalog = (e) =>{ 
+          setCustomers(customers)
+          let searchInput = e.target.value;
+          searchInput=searchInput.toLowerCase();
+          let allTitle = document.getElementsByClassName('list-group-item'); 
+          for (let i = 0; i < allTitle.length; i++) { 
+            //alert(allTitle[i].parentNode.parentNode.parentNode.parentElement)
+            if (allTitle[i].innerHTML.toLowerCase().includes(searchInput)) { 
+              console.log(searchInput);
+              allTitle[i].parentNode.parentNode.parentNode.parentElement.style.display="block";
+            } 
+            else {
+              console.log("yes");
+              allTitle[i].parentNode.parentNode.parentNode.parentElement.style.display="none";				 
+            } 
+          }
+        } 
 
-  //Search list using keywords
-  const searchCatalog = (e) =>{ 
-    let searchInput = e.target.value;
-    searchInput = searchInput.toLowerCase();
-    let newData = genList.filter(function (item) {
-        return item.title.toLowerCase().includes(searchInput);
-    });
-    setCustomers(newData);
-  } 
-
-  /*const newLocation = (external) => {
+  const newLocation = (external) => {
     window.open(external)
-  }*/
+  }
 
   const classes = useStyles();
 
   return (
     <div className="">
       <Grid container spacing={3} >
-      <Grid item xs={11} sm={6} className="appContent">
+      <Grid item xs={11} sm={7} className="appContent">
         <div className="customer-details" id="section1">
         {currentCustomer ? (
           <div>
+          {alert(currentCustomer.category)}
             <TableContainer>
                 <Table className={classes.table} aria-label="simple table">
                   <TableHead>
@@ -203,28 +200,37 @@ const CustomersList = () => {
         )}
       </div>
       </Grid>
-      <Grid item xs={11} sm={6} className="appContent">
+      <Grid item xs={11} sm={5} className="appContent">
       {isLoading ? (<p>Data loading, please wait.. 
         <Loader type="ThreeDots" color="#00BFFF" height={50} width={50} />
        </p>) : (
         <div className="article-list" className={classes.root}>
           <h3><strong>ARTICLE TOPICS</strong></h3>
           <p>Click on any article below to view details...</p>
-          <div className="article-search" id="list-search">
-
+          <div className="article-search">
+            <Button
+                variant="contained"
+                onClick={searchCatalog}
+                color="primary"
+                className={classes.button}
+            >
+                <SearchOutlinedIcon />
+                Search
+            </Button>
             <input
                 type="text"
                 id="article-searcher"
                 className="searchbox"
-                placeholder="Search list with keywords"
+                placeholder="Search Catalog"
                 onKeyUp={searchCatalog}
             />
+            {/**/}
           </div>
           <div >
             <FixedSizeList
-            className="List"
+              component="nav"
               height={500}
-              width={520}
+              width={500}
               itemSize={60}
               itemCount={topicList.length}
               >

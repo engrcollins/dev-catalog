@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import HomeIcon from '@material-ui/icons/Home';
 import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
+import FolderIcon from '@material-ui/icons/Folder';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import { Collapse } from '@material-ui/core';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -22,6 +23,8 @@ import RouterIcon from '@material-ui/icons/Router';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    height: '100%',
+    marginRight: 2,
     backgroundColor: theme.palette.background.paper,
   },
   nested: {
@@ -48,19 +51,6 @@ const Side = () => {
       <List component="nav" aria-label="main mailbox folders">
         <ListItem
           button
-          selected={selectedIndex === 0}
-          onClick={(event) => handleListItemClick(event, 0)}
-        >
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <Link to={"/"}>
-  <ListItemText primary= "&lt;DEV /&gt; CATALOG" />
-            </Link>
-        </ListItem>
-
-        <ListItem
-          button
           selected={selectedIndex === 1}
           onClick={(event) => handleListItemClick(event, 1)}
         >
@@ -72,7 +62,7 @@ const Side = () => {
           </Link>
         </ListItem>
 
-        <ListItem
+        {/*<ListItem
           button
           selected={selectedIndex === 2}
           onClick={(event) => handleListItemClick(event, 2)}
@@ -83,41 +73,48 @@ const Side = () => {
           <Link to={"/add"}>
               <ListItemText primary="New Article" />
             </Link>
-        </ListItem>
+  </ListItem>*/}
       </List>
 
       <Divider />
 
       <List component="nav" aria-label="secondary mailbox folder">
-        <ListItem
-          button
-          selected={selectedIndex === 3}
-          onClick={(event) => handleListItemClick(event, 3)}
-        >
-        <ListItemIcon>
-          <RouterIcon />
-        </ListItemIcon>
-          <ListItemText primary="Top Articles" />
-        </ListItem>
-
        <ListItem button onClick={handleClick}>
         <ListItemIcon>
-          <AccessTimeIcon />
+          <FolderIcon />
         </ListItemIcon>
-        <ListItemText primary="Recent Articles" />
+        <ListItemText primary="Categories" />
         {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItem>
-          </List>
-      </Collapse>
-    </List>
+        </ListItem>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                <ListItemIcon>
+                  <StarBorder />
+                </ListItemIcon>
+                <ListItemText primary="Front-end" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemIcon>
+                  <StarBorder />
+                </ListItemIcon>
+                <ListItemText primary="Back-end" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemIcon>
+                  <StarBorder />
+                </ListItemIcon>
+                <ListItemText primary="Full-stack" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemIcon>
+                  <StarBorder />
+                </ListItemIcon>
+                <ListItemText primary="Web Deployment" />
+              </ListItem>
+              </List>
+          </Collapse>
+      </List>
     </div>
   );
 }

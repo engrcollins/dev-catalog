@@ -4,112 +4,67 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import TypoGraphy from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import header2 from './materials/header2.png'
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import Button from '@material-ui/core/Button';
 const Header = () => {
+      //Search Catalog
+      const searchCatalog = () =>{ 
+        let searchInput = document.getElementById('article-searcher').value 
+        searchInput=searchInput.toLowerCase(); 
+        let allTitle = document.getElementsByClassName('list-group-item'); 
+        
+        for (let i = 0; i < allTitle.length; i++) { 
+          if (!allTitle[i].innerHTML.toLowerCase().includes(searchInput)) { 
+                  allTitle[i].parentElement.style.display="none";
+          } 
+          else {
+            allTitle[i].parentElement.style.display="block";				 
+          } 
+        } 
+      } 
     const  setDate = () => {
       const now = new Date();
-      const mm = now.getMonth();
-      const dd = now.getDay();
-      const dt = now.getDate();
-      const yyyy = now.getFullYear();
-      const secs = now.getSeconds();
-      const mins = now.getMinutes();
-      const hrs = now.getHours();
-      const monthName = [
-        'January','February','March','April',
-        'May','June','July','August','September',
-        'October','November','December'
-      ];
-      const dayName = [ 'Sunday', 'Monday', 'Tuesday',
-        'Wednesday', 'Thursday', 'Friday',
-        'Saturday'
-      ];
-      
-      var hours ="";
-      var minutes="";
-      var seconds="";
-
-      var month="";
-      var day="";
-      var date="";
-      var year="";
-      var meridian ="";
-      if (hrs > 12) {
-        hours = hrs - 12;
-        meridian = "pm";	
-      } else {
-        hours = hrs;
-        if(hours === 12){
-          meridian = "pm";
-        }else{
-          meridian = "am";
-        }
-      }
-
-      if (hours < 10) {
-        hours = '0' + hours;
-      }
-      if (secs < 10) {
-        seconds = '0' + secs;
-      } else {
-        seconds = secs;
-      }
-      
-      if (mins < 10) {
-        minutes= '0' + mins;
-      } else {
-        minutes = mins;
-      }
-      month = monthName[mm];
-      day = dayName[dd];
-      date = dt;
-      year = yyyy;
-      const presentDate = document.querySelector('.date');
-      //present.innerHTML = 
-      presentDate.innerHTML = `Date: ${day}, ${date} ${month} ${year}. | Time: ${hours}:${minutes}:${seconds}${meridian}`;
-      //dt +" " +month +" " +year". | Time
+      const year = now.getFullYear();
       const copyright = document.querySelector('.copyright');
       copyright.innerHTML = year;
     }
-    setInterval(setDate,1000);
 
     const useStyles = makeStyles((theme) => ({
-      iconise: {
-        display: 'flex',
-        '& > *': {
+      home: {
+
+      },
+        button: {
           margin: theme.spacing(1),
-        },
-      },
-
-      righted:{
-        position: 'absolute',
-        right: 0,
-      },
-
-      barback: {
-         backgroundColor: '#81d4fa'
+          borderRadius: 20,
         },
     }));
 
     const classes = useStyles();
     return(
       <div>
-        <AppBar className={classes.barback} position="static" padding-right="-1px" >
-        <Toolbar  >
-          <span className={classes.iconise} >
-            <Avatar alt="Dev Catalog" src="web-logo.jpg" />
-          </span>
-        <TypoGraphy>
-            <h2 className="web-title">&lt;DEV /&gt; CATALOG</h2>
-          </TypoGraphy>
-          <span className="cub-span">
-            <img alt="web-logo" src={header2} className="cub" />
-          </span>
-          </Toolbar>
+        <AppBar  class="navbar" position="static" padding-right="-1px" >
+          <span class="menu"><a href="/" id="home">&lt;/&gt; DEV CATALOG</a></span>
+          <span class="menu"><a href="#">CONTACT</a></span>
+          <span class="menu"><a href="#">BLOG</a></span>
+              <div className="article-search">
+                  <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                  >
+                       <SearchOutlinedIcon />
+                      Search
+                  </Button>
+                  <input
+                      type="text"
+                      id="article-searcher"
+                      className="searchbox"
+                      placeholder="Search Catalog"
+                      onKeyUp={searchCatalog}
+                  />
+                  {/**/}
+              </div>
         </AppBar>
-        <div onClick={setDate}> 
-            <h3 align="center" id="welcome"><p className="date"></p></h3>
-        </div>
       </div>
       );
     }
