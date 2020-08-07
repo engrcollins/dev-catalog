@@ -3,7 +3,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import Button from '@material-ui/core/Button';
-import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -34,11 +33,11 @@ const ArchiveNav = () =>{
       } 
         return(
             <div>
-                <div class="navbar">
+                <div className="navbar">
                   <a href="#" className={classes.home}>HOME</a>
-                        <div class="dropdown">
-                            <button class="dropbtn">CATEGORIES </button>
-                            <div class="dropdown-content">
+                        <div className="dropdown">
+                            <button className="dropbtn">CATEGORIES </button>
+                            <div className="dropdown-content">
                                 <a href="#">Link 1</a>
                                 <a href="#">Link 2</a>
                                 <a href="#">Link 3</a>

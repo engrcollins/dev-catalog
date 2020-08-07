@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './CustomersList.css'
 import CustomerDataService from "../services/CustomerService";
 import { Link } from "react-router-dom";
-import { Grid, Paper, Typography, Divider, Input } from "@material-ui/core";
+import { Grid, Divider} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,15 +10,12 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { FixedSizeList } from 'react-window';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +41,6 @@ const CustomersList = () => {
   const [currentCustomer, setCurrentCustomer] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedIndex, setSelectedIndex] = useState(1);
   const [genList, setGenList] = useState(null);
 
   useEffect(() => {
@@ -72,7 +68,6 @@ const CustomersList = () => {
     //Set clicked topic to be displayed
    const setActiveCustomer = (indexTitle) => {
        let d = customers.find(d => d.title === indexTitle);
-       let item = JSON.stringify(d);
         setCurrentCustomer(d);
      //setCurrentIndex(index);
    };
@@ -98,7 +93,7 @@ const CustomersList = () => {
           >
           <AnchorLink href='#section1'>
             <ListItemText primary=
-              {<p class="list-group-item">{topicList[index]}</p>}
+              {<p className="list-group-item">{topicList[index]}</p>}
               />
               <Divider />
             </AnchorLink>

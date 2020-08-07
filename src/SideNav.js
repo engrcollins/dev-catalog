@@ -1,24 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import HomeIcon from '@material-ui/icons/Home';
 import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
 import FolderIcon from '@material-ui/icons/Folder';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import { Collapse } from '@material-ui/core';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import RouterIcon from '@material-ui/icons/Router';
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {

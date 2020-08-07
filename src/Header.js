@@ -1,13 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import TypoGraphy from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import Button from '@material-ui/core/Button';
+
 const Header = () => {
-      //Search Catalog
+
+      /*Search Catalog
       const searchCatalog = () =>{ 
         let searchInput = document.getElementById('article-searcher').value 
         searchInput=searchInput.toLowerCase(); 
@@ -21,15 +21,9 @@ const Header = () => {
             allTitle[i].parentElement.style.display="block";				 
           } 
         } 
-      } 
-    const  setDate = () => {
-      const now = new Date();
-      const year = now.getFullYear();
-      const copyright = document.querySelector('.copyright');
-      copyright.innerHTML = year;
-    }
+      }*/
 
-    const useStyles = makeStyles((theme) => ({
+  const useStyles = makeStyles((theme) => ({
       home: {
 
       },
@@ -39,13 +33,13 @@ const Header = () => {
         },
     }));
 
-    const classes = useStyles();
+  const classes = useStyles();
     return(
       <div>
         <AppBar  class="navbar" position="static" padding-right="-1px" >
-          <span class="menu"><a href="/" id="home">&lt;/&gt; DEV CATALOG</a></span>
-          <span class="menu"><a href="#">CONTACT</a></span>
-          <span class="menu"><a href="#">BLOG</a></span>
+          <span className="menu"><a href="/" id="home">&lt;/&gt; DEV CATALOG</a></span>
+          <span className="menu"><a href="#">CONTACT</a></span>
+          <span className="menu"><a href="#">BLOG</a></span>
               <div className="article-search">
                   <Button
                       variant="contained"
@@ -60,7 +54,7 @@ const Header = () => {
                       id="article-searcher"
                       className="searchbox"
                       placeholder="Search Catalog"
-                      onKeyUp={searchCatalog}
+                      //onKeyUp={searchCatalog}
                   />
                   {/**/}
               </div>

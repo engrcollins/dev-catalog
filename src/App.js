@@ -1,8 +1,6 @@
-import React, {component, useState} from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Container, Grid, Paper, Typography } from "@material-ui/core";
-import LayersIcon from '@material-ui/icons/Layers';
-//import "bootstrap/dist/css/bootstrap.min.css";
+import { Grid } from "@material-ui/core";
 import Header from './Header';
 import Side from './SideNav.js';
 import "./App.css";
